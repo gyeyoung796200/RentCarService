@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+
+* {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/*******상단 nav바*******/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    z-index: 1;
+    background-color: white;
+    border:1px solid black;
+}
+
+.navbar > ul li a {
+    font-weight: 900;
+    color: #24252a;
+    text-decoration: none;
+}
+
+.navbar__logo {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    color: deepskyblue;
+    font-size: larger;
+}
+
+.navbar__logo li{
+    list-style: none;
+}
+.navbar__logo li .current__time{
+    margin: 0;
+    line-height: 50px;
+    margin-left: 20px;
+    color:black
+}
+
+.navbar__menu {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+}
+
+.navbar__user {
+    display: flex;
+    margin: 0;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.navbar__toggleBtn{
+    display: none;
+}
+
+.navbar__menu li, .navbar__user li {
+    padding: 8px 12px;
+    list-style-type: none;
+    transition: all .3s ease;
+}
+.navbar__menu li:hover, .navbar__user li:hover{
+    background-color: cadetblue;
+}
+
+/*----------------------------*/
+
+.content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content img {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+.content .joinForm {
+    /*width: 100%;*/
+    /* height: 100%;*/
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 80px;
+    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+}
+
+/************* 게시판 **********/
+
+
+/*******************************
+
+
+
+/*** 회원가입창 확인 취소버튼, 효과 ***/
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    color: red;
+}
+/******************************/
+
+
+/**************media Query*********/
+@media screen and (max-width: 768px) {
+
+    .navbar{
+        flex-direction: column;
+    }
+    .navbar__logo{
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .navbar__toggleBtn{
+        display: block;
+        position: absolute;
+        line-height: 92px;
+        top:0;
+        right: 32px;
+        font-size: 24px;
+        color: deepskyblue;
+    }
+
+    .navbar__menu.active, .navbar__user.active{
+        display: inline;
+    }
+
+    .navbar__menu{
+        flex-direction: column;
+        display: none;
+        text-align: center;
+    }
+    .navbar__user{
+        flex-direction: column;
+        display: none;
+        text-align: center;
+    }
+
+    /* .wrap  */
+    .content .joinForm {
+        margin-top: 27%;
+        padding: 20px;
+    }
+}
+
+
+
+/* @media screen and (max-width: 768px) {
+  .wrap .content .joinForm {
+    margin-top: 27%;
+    padding: 20px;
+  }
+}
+*/
+
+

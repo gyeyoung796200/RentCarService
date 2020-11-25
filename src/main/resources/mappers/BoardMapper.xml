@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.rentcar.mappers.BoardMapper">
+
+    <insert id="insertBoard" parameterType="BoardVO">
+        insert into board(bno, title, content, writer, regDate, viewCnt) values (#{bno}, #{title}, #{content}, #{writer}, #{regDate}, #{viewCnt})
+    </insert>
+
+    <select id="readBoard" parameterType="BoardVO" resultType="BoardVO">
+        select bno, title, content, writer, regDate, viewCnt from board where bno = #{bno}
+    </select>
+
+    <update id="updateBoard" parameterType="BoardVO">
+        update board set title = #{title}, content = #{content} where bno = #{bno}
+    </update>
+
+    <delete id="deleteBoard" parameterType="Integer">
+        delete from board where bno = #{bno}
+    </delete>
+
+    <select id="listBoard" resultType="BoardVO">
+        select bno, title, content, writer, regDate, viewCnt from board where bno > 0 order by bno desc, regDate desc
+    </select>
+
+</mapper>
