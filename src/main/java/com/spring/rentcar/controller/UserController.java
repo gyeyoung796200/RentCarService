@@ -25,7 +25,7 @@ public class UserController {
     public ModelAndView insertGet() throws Exception{
 
         ModelAndView mav = new ModelAndView();
-        mav.addObject("mainData", "user/insertForm.jsp");
+        mav.addObject("mainData", "user/insert.jsp");
         mav.setViewName("index");
 
         return mav;

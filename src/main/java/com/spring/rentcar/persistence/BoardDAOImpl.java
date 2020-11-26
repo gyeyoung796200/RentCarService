@@ -1,6 +1,8 @@
 package com.spring.rentcar.persistence;
 
 
+import com.spring.rentcar.commons.Criteria;
+import com.spring.rentcar.commons.SearchCriteria;
 import com.spring.rentcar.domain.BoardVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -41,8 +43,27 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
-    public List<BoardVO> listBoard() throws Exception {
+    public List<BoardVO> listPaging(SearchCriteria searchCriteria) throws Exception {
 
-        return sqlSession.selectList(NAMESPACE+".listBoard");
+        return sqlSession.selectList(NAMESPACE+".listPaging", searchCriteria);
+    }
+
+    @Override
+    public int totalCount(SearchCriteria searchCriteria) throws Exception {
+
+        return sqlSession.selectOne(NAMESPACE+".totalCount", searchCriteria);
+    }
+
+
+    @Override
+    public List<BoardVO> listSearch(SearchCriteria searchCriteria) throws Exception {
+
+        return sqlSession.selectList(NAMESPACE+".listSearch", searchCriteria);
+    }
+
+    @Override
+    public int countSearchBoard(SearchCriteria searchCriteria) throws Exception {
+
+        return sqlSession.selectOne(NAMESPACE+".countSearchBoard", searchCriteria);
     }
 }

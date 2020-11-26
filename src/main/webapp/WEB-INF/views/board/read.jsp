@@ -20,7 +20,13 @@
 <body>
 <form role="form">
     <input type="hidden" name="bno" value="${board.bno}"/>
-    <label for="join"><h3 style="text-align: center;">글정보</h3></label>
+    <input type="hidden" name="page" value="${searchCriteria.page}"/>
+    <input type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}"/>
+    <input type="hidden" name="searchType" value="${searchCriteria.searchType}"/>
+    <input type="hidden" name="keyWord" value="${searchCriteria.keyWord}"/>
+
+
+    <h3 style="text-align: center;">글정보</h3>
     <input type="text" class="form-control" name="title" value="${board.title}" disabled/><br />
     <input type="text" class="form-control" name="writer" value="${board.writer}" disabled/><br>
     <textarea class="form-control" name="content" disabled>${board.content}</textarea>
@@ -45,7 +51,9 @@
      });
 
      $(".listBtn").click(function(){
-         self.location = "${pageContext.request.contextPath}/board/list2";
+         formObj.attr("action", "${pageContext.request.contextPath}/board/list");
+         formObj.attr("method", "get");
+         formObj.submit();
      });
 </script>
 </body>

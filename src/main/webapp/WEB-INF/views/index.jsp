@@ -44,7 +44,7 @@
         <ul class="navbar__menu">
             <li><a href="">About</a></li>
             <li><a href="">RentService</a></li>
-            <li><a href="${pageContext.request.contextPath}/board/list2">Board</a></li>
+            <li><a href="${pageContext.request.contextPath}/board/list">Board</a></li>
         </ul>
 
         <ul class="navbar__user">

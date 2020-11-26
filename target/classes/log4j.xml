@@ -11,7 +11,7 @@
     </appender>
 
     <!-- Application Loggers -->
-    <logger name="com.doubles.mvcboard">
+    <logger name="com.spring.rentcar">
         <level value="info" />
     </logger>
 

@@ -20,14 +20,20 @@
 <body>
 <form role="form">
     <input type="hidden" name="bno" value="${board.bno}"/>
+    <input type="hidden" name="page" value="${searchCriteria.page}"/>
+    <input type="hidden" name="perPageNum" value="${searchCriteria.perPageNum}"/>
+    <input type="hidden" name="searchType" value="${searchCriteria.searchType}"/>
+    <input type="hidden" name="keyWord" value="${searchCriteria.keyWord}"/>
+
+
     <label for="join"><h3 style="text-align: center;">글수정</h3></label>
     <input type="text" class="form-control" name="title" value="${board.title}"/><br/>
     <input type="text" class="form-control" name="writer" value="${board.writer}" disabled/><br>
     <textarea class="form-control" name="content">${board.content}</textarea>
 
     <input type="button" class="btn btn-primary saveBtn" value="저장"/>
-    <input type="button" class="btn btn-danger cancelBtn" onclick="history.go(-1)" value="취소"/>
-    <input type="button" class="btn btn-default" onclick="self.location='${pageContext.request.contextPath}/board/list2'"  value="목록"/>
+    <input type="button" class="btn btn-danger cancelBtn" value="취소"/>
+    <input type="button" class="btn btn-default listBtn" value="목록"/>
 </form>
 <script>
     const formObj = $("form[role='form']");
@@ -38,6 +44,16 @@
         formObj.submit();
     });
 
+    $(".cancelBtn").click(function(){
+        history.go(-1);
+    });
+
+    $(".listBtn").click(function(){
+        self.location="${pageContext.request.contextPath}/board/list?page=${searchCriteria.page}"
+                        +"&perPageNum=${searchCriteria.perPageNum}"
+                        +"&searchType=${searchCriteria.searchType}"
+                        +"&keyWord=${searchCriteria.keyWord}";
+    });
 </script>
 </body>
 </html>

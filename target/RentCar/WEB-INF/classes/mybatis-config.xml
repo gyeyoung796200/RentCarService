@@ -7,5 +7,7 @@
     <typeAliases>
         <typeAlias type="com.spring.rentcar.domain.UserVO" alias="UserVO"></typeAlias>
         <typeAlias type="com.spring.rentcar.domain.BoardVO" alias="BoardVO"></typeAlias>
+        <typeAlias type="com.spring.rentcar.commons.Criteria" alias="Criteria"></typeAlias>
+        <typeAlias type="com.spring.rentcar.commons.SearchCriteria" alias="SearchCriteria"></typeAlias>
     </typeAliases>
 </configuration>
