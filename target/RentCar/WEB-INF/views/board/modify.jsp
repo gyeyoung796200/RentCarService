@@ -26,7 +26,7 @@
     <input type="hidden" name="keyWord" value="${searchCriteria.keyWord}"/>
 
 
-    <label for="join"><h3 style="text-align: center;">글수정</h3></label>
+    <label for="join"><h3 style="text-align: center;" id="join">글수정</h3></label>
     <input type="text" class="form-control" name="title" value="${board.title}"/><br/>
     <input type="text" class="form-control" name="writer" value="${board.writer}" disabled/><br>
     <textarea class="form-control" name="content">${board.content}</textarea>

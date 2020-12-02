@@ -1,6 +1,5 @@
 package com.spring.rentcar.service;
 
-import com.spring.rentcar.commons.Criteria;
 import com.spring.rentcar.commons.SearchCriteria;
 import com.spring.rentcar.domain.BoardVO;
 import com.spring.rentcar.persistence.BoardDAO;
@@ -22,6 +21,7 @@ public class BoardServiceImpl implements BoardService  {
 
     @Override
     public BoardVO readBoard(int bno) throws Exception {
+
         return boardDAO.readBoard(bno);
     }
 
@@ -36,18 +36,6 @@ public class BoardServiceImpl implements BoardService  {
     }
 
     @Override
-    public List<BoardVO> listPaging(SearchCriteria searchCriteria) throws Exception {
-
-        return boardDAO.listPaging(searchCriteria);
-    }
-
-    @Override
-    public int totalCount(SearchCriteria searchCriteria) throws Exception {
-
-        return boardDAO.totalCount(searchCriteria);
-    }
-
-    @Override
     public List<BoardVO> listSearch(SearchCriteria searchCriteria) throws Exception {
 
         return boardDAO.listSearch(searchCriteria);
@@ -57,5 +45,10 @@ public class BoardServiceImpl implements BoardService  {
     public int countSearchBoard(SearchCriteria searchCriteria) throws Exception {
 
         return boardDAO.countSearchBoard(searchCriteria);
+    }
+
+    @Override
+    public void viewCntBoard(int bno) throws Exception {
+        boardDAO.viewCntBoard(bno);
     }
 }

@@ -20,15 +20,12 @@ public interface BoardService {
     //게시글 삭제
     public void deleteBoard(int bno) throws Exception;
 
-    //게시판 페이징
-    public List<BoardVO> listPaging(SearchCriteria searchCriteria) throws Exception;
-
-    //총 게시글 개수
-    public int totalCount(SearchCriteria searchCriteria) throws Exception;
-
-
     //검색목록 페이징
     public List<BoardVO> listSearch(SearchCriteria searchCriteria) throws Exception;
 
+    //총게시글 조회
     public int countSearchBoard(SearchCriteria searchCriteria) throws Exception;
+
+    //조회수 증가
+    public void viewCntBoard(int bno) throws Exception;
 }

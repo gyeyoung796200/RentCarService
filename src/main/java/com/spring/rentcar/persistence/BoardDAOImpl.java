@@ -43,19 +43,6 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
-    public List<BoardVO> listPaging(SearchCriteria searchCriteria) throws Exception {
-
-        return sqlSession.selectList(NAMESPACE+".listPaging", searchCriteria);
-    }
-
-    @Override
-    public int totalCount(SearchCriteria searchCriteria) throws Exception {
-
-        return sqlSession.selectOne(NAMESPACE+".totalCount", searchCriteria);
-    }
-
-
-    @Override
     public List<BoardVO> listSearch(SearchCriteria searchCriteria) throws Exception {
 
         return sqlSession.selectList(NAMESPACE+".listSearch", searchCriteria);
@@ -65,5 +52,10 @@ public class BoardDAOImpl implements BoardDAO {
     public int countSearchBoard(SearchCriteria searchCriteria) throws Exception {
 
         return sqlSession.selectOne(NAMESPACE+".countSearchBoard", searchCriteria);
+    }
+
+    @Override
+    public void viewCntBoard(int bno) throws Exception {
+        sqlSession.update(NAMESPACE+".viewCntBoard", bno);
     }
 }
