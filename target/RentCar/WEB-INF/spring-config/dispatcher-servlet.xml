@@ -2,25 +2,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-        <!-- 어노테이션 인식 -->
-        <mvc:annotation-driven/>
 
-        <!-- 정적자원 매핑 -->
-        <mvc:resources mapping="/resources/**" location="/resources/"/>
-        <mvc:resources mapping="/img/**" location="/resources/img/" />
+    <!-- 파일업로드 multipartResolver 설정 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1048576"/>
+    </bean>
 
-        <!-- viewResolver 설정 -->
-        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                <property name="prefix" value="/WEB-INF/views/"/>
-                <property name="suffix" value=".jsp"/>
-        </bean>
 
-        <context:component-scan base-package="com.spring.rentcar"/>
-        <context:component-scan base-package="com.spring.rentcar.domain"/>
-        <context:component-scan base-package="com.spring.rentcar.controller"/>
-        <context:component-scan base-package="com.spring.rentcar.persistence"/>
-        <context:component-scan base-package="com.spring.rentcar.service"/>
-        <context:component-scan base-package="com.spring.rentcar.commons"/>
+    <!-- proxy객체 생성 -->
+    <aop:aspectj-autoproxy/>
+
+
+    <!-- 어노테이션 인식 -->
+    <mvc:annotation-driven/>
+
+    <!-- 정적자원 매핑 -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/img/**" location="/resources/img/"/>
+
+    <!-- viewResolver 설정 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <context:component-scan base-package="com.spring.rentcar"/>
+    <context:component-scan base-package="com.spring.rentcar.domain"/>
+    <context:component-scan base-package="com.spring.rentcar.controller"/>
+    <context:component-scan base-package="com.spring.rentcar.persistence"/>
+    <context:component-scan base-package="com.spring.rentcar.service"/>
+    <context:component-scan base-package="com.spring.rentcar.commons"/>
 </beans>

@@ -24,4 +24,8 @@ public interface ReplyDAO {
 
     //댓글 개수
     public int countReply(int bno) throws Exception;
+
+
+    //////
+    public int getBno(int replyNo) throws Exception;
 }

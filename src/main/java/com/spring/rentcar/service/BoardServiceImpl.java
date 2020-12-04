@@ -51,4 +51,5 @@ public class BoardServiceImpl implements BoardService  {
     public void viewCntBoard(int bno) throws Exception {
         boardDAO.viewCntBoard(bno);
     }
+
 }

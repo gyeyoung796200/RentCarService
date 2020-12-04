@@ -41,4 +41,13 @@ public class Criteria {
 
         return (this.page -1)* 10;
     }
+
+
+    @Override
+    public String toString() {
+        return "Criteria{" +
+                "page=" + page +
+                ", perPageNum=" + perPageNum +
+                '}';
+    }
 }

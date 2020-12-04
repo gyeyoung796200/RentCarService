@@ -20,4 +20,13 @@ public class SearchCriteria extends Criteria {
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord;
     }
+
+
+    @Override
+    public String toString() {
+        return "SearchCriteria{" +
+                "searchType='" + searchType + '\'' +
+                ", keyWord='" + keyWord + '\'' +
+                '}';
+    }
 }

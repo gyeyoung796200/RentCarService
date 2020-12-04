@@ -23,7 +23,7 @@
 
     <select id="listSearch" parameterType="SearchCriteria" resultType="BoardVO">
         <![CDATA[
-        select bno, title, content, writer, regDate, viewCnt from board where bno > 0
+        select bno, title, content, writer, regDate, viewCnt, replyCnt from board where bno > 0
         ]]>
         <include refid="search"/>
         <![CDATA[
@@ -41,7 +41,6 @@
     <update id="viewCntBoard" parameterType="Integer">
         update board set viewCnt = viewCnt + 1 where bno = #{bno}
     </update>
-
 
     <sql id="search">
         <if test="searchType != null">
@@ -72,6 +71,10 @@
 
     </sql>
 
+
+    <update id="updateReplyCnt">
+        update board set replyCnt = replyCnt + #{amount} where bno = #{bno}
+    </update>
 
 
 </mapper>

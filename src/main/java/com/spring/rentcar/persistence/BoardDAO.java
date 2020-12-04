@@ -29,4 +29,9 @@ public interface BoardDAO {
 
     //조회수 증가
     public void viewCntBoard(int bno) throws Exception;
+
+
+
+    //
+    public void updateReplyCnt(int bno, int amount) throws Exception;
 }

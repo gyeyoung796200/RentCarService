@@ -64,7 +64,7 @@ public class BoardController {
         //저장된 쿠기 불러오기
         Cookie[] cookies = req.getCookies();
 
-        Map map = new HashMap();
+        Map<Object, Object> map = new HashMap<>();
 
         if(req.getCookies() != null){
             for(int i = 0; i <cookies.length; i++){

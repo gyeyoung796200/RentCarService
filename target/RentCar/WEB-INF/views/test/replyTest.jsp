@@ -79,11 +79,12 @@
 
         </div>
     </div>
-
+</section>
     <script>
-        const bno = 10;
-
-        repliesList();
+        let bno = 10;
+        let page =1;
+        // repliesList();
+        repliesListPaging(1);
 
         $(".createBtn").click(function () {
 
@@ -199,8 +200,69 @@
             });
         });
 
+        $(".pagination").on("click", "li a", function(event){
+
+            event.preventDefault();
+
+            page = $(this).attr("href");
+            repliesListPaging(page);
+
+        })
+
+        function listPageNumber(pageMaker) {
+
+            let str = "";
+
+            //이전버튼
+            if(pageMaker.prev){
+                str += "<li><a href='"+pageMaker.startPage -1+"'>이전</a></li>";
+            }
+
+            //페이지번호
+            for(let start = pageMaker.startPage, end = pageMaker.endPage; start < end; start++){
+                let strClass = pageMaker.criteria.page == start ? 'class=active': '';
+                str += "<li "+strClass+"><a href='"+start+"'>"+start+"</a></li>";
+            }
+
+            //다음버튼
+            if(pageMaker.next){
+                str += "<li><a href='"+pageMaker.endPage+1+"'>다음</a></li>";
+            }
+
+            $(".pagination-sm").html(str);
+
+        }
+
+        function repliesListPaging(page){
+
+            $.getJSON("/replies/"+bno+"/"+page, function(data){
+
+                console.log(data);
+                console.log(data.replies);
+                console.log(data.pageMaker);
+
+                let str = "";
+
+                $(data.replies).each(function(){
+
+                    str += "<li data-replyNo='"+this.replyNo+"' class =  'replyLi'>"
+                        +   "<p class='replyText'>"+ this.replyText +"</p>"
+                        +   "<p class='replyWriter'>"+ this.replyWriter +"</p>"
+                        +   "<button type='button' class='btn btn-xs btn-success' data-toggle='modal' data-target='#modifyModal'>댓글수정</button>"
+                        +   "</li>"
+                        +   "<hr/>";
+                });
+                $("#replies").html(str);
+
+                listPageNumber(data.pageMaker);
+
+            });
+
+
+        }
+
 
     </script>
-</section>
+
 </body>
 </html>

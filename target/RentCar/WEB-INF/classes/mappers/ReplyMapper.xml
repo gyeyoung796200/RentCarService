@@ -28,4 +28,9 @@
     <select id="countReply" parameterType="Integer" resultType="Integer">
         select count(bno) from board_reply where bno = #{bno}
     </select>
+
+    <select id="getBno" resultType="Integer">
+        select bno from board_reply where replyNo = #{replyNo}
+    </select>
+
 </mapper>

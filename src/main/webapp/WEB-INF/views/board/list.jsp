@@ -4,6 +4,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
     <!-- 부가적인 테마 -->
@@ -12,7 +13,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!--아이콘-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -46,6 +46,7 @@
             <td>${(pageMaker.totalCount - status.index) -((pageMaker.criteria.page - 1)* pageMaker.criteria.perPageNum)}</td>
             <td>
                 <a href="${pageContext.request.contextPath}/board/read${pageMaker.makeSearch(pageMaker.criteria.page)}&bno=${list.bno}">${list.title}</a>
+                <span class="badge bg-teal"><i class="fa fa-comment-o"></i>+${list.replyCnt}</span>
             </td>
             <td>${list.writer}</td>
             <td><fmt:formatDate value="${list.regDate}" pattern="yy-MM-dd HH:mm"></fmt:formatDate></td>

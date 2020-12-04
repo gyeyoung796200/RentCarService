@@ -59,4 +59,10 @@ public class ReplyDAOImpl implements ReplyDAO {
 
         return sqlSession.selectOne(NAMESPACE+".countReply", bno);
     }
+
+    @Override
+    public int getBno(int replyNo) throws Exception {
+
+        return sqlSession.selectOne(NAMESPACE+".getBno", replyNo);
+    }
 }
